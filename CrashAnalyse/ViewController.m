@@ -7,8 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "JJCALoggerUitilsMacrocDefine.h"
 
 @implementation ViewController
+
+- (IBAction)selectCommandFile:(id)sender {
+    GJGCLogJunJie(@"文件选择");
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
