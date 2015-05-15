@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E4B40141B05855F005DAB83 /* JJCALogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E4B40121B05855F005DAB83 /* JJCALogFormatter.m */; };
 		0EE2395D1B04EA140018B6F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2395C1B04EA140018B6F1 /* AppDelegate.m */; };
 		0EE2395F1B04EA140018B6F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2395E1B04EA140018B6F1 /* main.m */; };
 		0EE239621B04EA140018B6F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE239611B04EA140018B6F1 /* ViewController.m */; };
@@ -29,8 +30,10 @@
 
 /* Begin PBXFileReference section */
 		05BCB61D2ECDD5DBEBE86148 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0E4B40111B05855F005DAB83 /* JJCALogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCALogFormatter.h; sourceTree = "<group>"; };
+		0E4B40121B05855F005DAB83 /* JJCALogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJCALogFormatter.m; sourceTree = "<group>"; };
+		0E4B40131B05855F005DAB83 /* JJCALoggerUitilsMacrocDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCALoggerUitilsMacrocDefine.h; sourceTree = "<group>"; };
 		0EA849F41B05013000A958E7 /* CrashAnalyse-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CrashAnalyse-Prefix.pch"; sourceTree = "<group>"; };
-		0EA849F51B05021200A958E7 /* JJCALoggerUitilsMacrocDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJCALoggerUitilsMacrocDefine.h; sourceTree = "<group>"; };
 		0EE239561B04EA140018B6F1 /* CrashAnalyse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrashAnalyse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EE2395A1B04EA140018B6F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EE2395B1B04EA140018B6F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,6 +71,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E4B400F1B05855F005DAB83 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				0E4B40101B05855F005DAB83 /* log */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		0E4B40101B05855F005DAB83 /* log */ = {
+			isa = PBXGroup;
+			children = (
+				0E4B40111B05855F005DAB83 /* JJCALogFormatter.h */,
+				0E4B40121B05855F005DAB83 /* JJCALogFormatter.m */,
+				0E4B40131B05855F005DAB83 /* JJCALoggerUitilsMacrocDefine.h */,
+			);
+			path = log;
+			sourceTree = "<group>";
+		};
 		0EE2394D1B04EA140018B6F1 = {
 			isa = PBXGroup;
 			children = (
@@ -93,7 +114,7 @@
 		0EE239581B04EA140018B6F1 /* CrashAnalyse */ = {
 			isa = PBXGroup;
 			children = (
-				0EA849F51B05021200A958E7 /* JJCALoggerUitilsMacrocDefine.h */,
+				0E4B400F1B05855F005DAB83 /* util */,
 				0EE2395B1B04EA140018B6F1 /* AppDelegate.h */,
 				0EE2395C1B04EA140018B6F1 /* AppDelegate.m */,
 				0EE239601B04EA140018B6F1 /* ViewController.h */,
@@ -287,6 +308,7 @@
 				0EE239621B04EA140018B6F1 /* ViewController.m in Sources */,
 				0EE2395F1B04EA140018B6F1 /* main.m in Sources */,
 				0EE2395D1B04EA140018B6F1 /* AppDelegate.m in Sources */,
+				0E4B40141B05855F005DAB83 /* JJCALogFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -47,21 +47,21 @@
 
 #ifdef GJGCLOG_JUN_JIE_TAG
 
-#define GJGCLogJunJie_Enter   //log中加上回车
+    #define GJGCLogJunJie_Enter   //log中加上回车
 
-#ifdef GJGCLogJunJie_Enter
+    #ifdef GJGCLogJunJie_Enter
 
-#define GJGCLogJunJie(frmt, ...) LOG_OBJC_MAYBE(GJGC_LOG_ASYNC, LOG_LEVEL_DEF, LOG_FLAG_VERBOSE, 0, @"$JJ$ => \n\n"frmt@"\n",## __VA_ARGS__)
+        #define GJGCLogJunJie(frmt, ...) LOG_OBJC_MAYBE(GJGC_LOG_ASYNC, LOG_LEVEL_DEF, LOG_FLAG_VERBOSE, 0, @"$JJ$ => \n\n"frmt@"\n",## __VA_ARGS__)
+
+    #else
+
+        #define GJGCLogJunJie(frmt, ...) LOG_OBJC_MAYBE(GJGC_LOG_ASYNC, LOG_LEVEL_DEF, LOG_FLAG_VERBOSE, 0, @"$JJ$ => "frmt,## __VA_ARGS__)
+
+    #endif
 
 #else
 
-#define GJGCLogJunJie(frmt, ...) LOG_OBJC_MAYBE(GJGC_LOG_ASYNC, LOG_LEVEL_DEF, LOG_FLAG_VERBOSE, 0, @"$JJ$ => "frmt,## __VA_ARGS__)
-
-#endif
-
-#else
-
-#define GJGCLogJunJie(frmt, ...)
+    #define GJGCLogJunJie(frmt, ...)
 
 #endif
 

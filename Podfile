@@ -1,2 +1,2 @@
 inhibit_all_warnings!
-pod 'CocoaLumberjack','1.9.0'
+pod 'CocoaLumberjack','2.0.0'
