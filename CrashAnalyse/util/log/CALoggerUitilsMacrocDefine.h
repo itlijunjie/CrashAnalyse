@@ -1,13 +1,13 @@
 //
-//  JJCALoggerUitilsMacrocDefine.h
+//  CALoggerUitilsMacrocDefine.h
 //  CrashAnalyse
 //
 //  Created by lijunjie on 5/15/15.
 //  Copyright (c) 2015 lijunjie. All rights reserved.
 //
 
-#ifndef CrashAnalyse_JJCALoggerUitilsMacrocDefine_h
-#define CrashAnalyse_JJCALoggerUitilsMacrocDefine_h
+#ifndef CrashAnalyse_CALoggerUitilsMacrocDefine_h
+#define CrashAnalyse_CALoggerUitilsMacrocDefine_h
 
 //异步打印日志开关
 #define GJGC_LOG_ASYNC_ON

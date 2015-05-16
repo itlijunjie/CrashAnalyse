@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "JJCALoggerUitilsMacrocDefine.h"
+#import "CADataCache.h"
 
 @interface ViewController ()
 {
@@ -30,12 +30,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [_commandPathTextField setStringValue:[kCADataCacheHandle getCommandPath]?:@""];
+    [_dsymPathTextField setStringValue:[kCADataCacheHandle getDsymPath]?:@""];
+    [_crashPathTextField setStringValue:[kCADataCacheHandle getCrashPath]?:@""];
+    [_appPathTextField setStringValue:[kCADataCacheHandle getAppPath]?:@""];
+    [_outPathTextField setStringValue:[kCADataCacheHandle getOutPath]?:@""];
 }
 
 - (IBAction)selectCommandFile:(id)sender {
     GJGCLogJunJie(@"文件命令选择！");
     _commandPath =  [self chooseFile];
-    _commandPathTextField.stringValue = _commandPath;
+    _commandPathTextField.stringValue = _commandPath?:@"";
+    [kCADataCacheHandle saveCommandPath:_commandPath];
 }
 
 - (IBAction)selectDsymFile:(id)sender {
@@ -110,13 +116,10 @@
 //    [openDlg setDirectoryURL:nil];
     
 //    [openDlg setNameFieldStringValue:nil];
+    
     NSURL *url = nil;
     if ([openDlg runModal] == NSModalResponseOK) {
-        // Get an array containing the full filenames of all
-        // files and directories selected.
         NSArray* files = [openDlg URLs];
-        
-        // Loop through all the files and process them.
         for(NSUInteger i = 0; i < [files count];) {
             url = [files objectAtIndex:i];
             break;
@@ -130,10 +133,10 @@
 {
     NSTask *task = [[NSTask alloc] init];
     [task setLaunchPath:commandPath];
-    [task setArguments: arguments];
+    [task setArguments:arguments];
     
     NSPipe *pipe = [NSPipe pipe];
-    [task setStandardOutput: pipe];
+    [task setStandardOutput:pipe];
     
     NSFileHandle *file = [pipe fileHandleForReading];
     

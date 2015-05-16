@@ -1,5 +1,5 @@
 //
-//  JJCALogFormatter.h
+//  CALogFormatter.h
 //  CrashAnalyse
 //
 //  Created by lijunjie on 5/15/15.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JJCALogFormatter : NSObject<DDLogFormatter>
+@interface CALogFormatter : NSObject<DDLogFormatter>
 
 @end

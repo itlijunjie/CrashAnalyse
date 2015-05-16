@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E4B40141B05855F005DAB83 /* JJCALogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E4B40121B05855F005DAB83 /* JJCALogFormatter.m */; };
+		0E27DDB21B077AD400DF1950 /* CADataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E27DDB11B077AD400DF1950 /* CADataCache.m */; };
+		0E4B40141B05855F005DAB83 /* CALogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E4B40121B05855F005DAB83 /* CALogFormatter.m */; };
 		0EE2395D1B04EA140018B6F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2395C1B04EA140018B6F1 /* AppDelegate.m */; };
 		0EE2395F1B04EA140018B6F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2395E1B04EA140018B6F1 /* main.m */; };
 		0EE239621B04EA140018B6F1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE239611B04EA140018B6F1 /* ViewController.m */; };
@@ -30,9 +31,12 @@
 
 /* Begin PBXFileReference section */
 		05BCB61D2ECDD5DBEBE86148 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E4B40111B05855F005DAB83 /* JJCALogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCALogFormatter.h; sourceTree = "<group>"; };
-		0E4B40121B05855F005DAB83 /* JJCALogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JJCALogFormatter.m; sourceTree = "<group>"; };
-		0E4B40131B05855F005DAB83 /* JJCALoggerUitilsMacrocDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JJCALoggerUitilsMacrocDefine.h; sourceTree = "<group>"; };
+		0E27DDAE1B06FCF600DF1950 /* CrashAnalyse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CrashAnalyse.entitlements; sourceTree = "<group>"; };
+		0E27DDB01B077AD400DF1950 /* CADataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADataCache.h; sourceTree = "<group>"; };
+		0E27DDB11B077AD400DF1950 /* CADataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CADataCache.m; sourceTree = "<group>"; };
+		0E4B40111B05855F005DAB83 /* CALogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALogFormatter.h; sourceTree = "<group>"; };
+		0E4B40121B05855F005DAB83 /* CALogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CALogFormatter.m; sourceTree = "<group>"; };
+		0E4B40131B05855F005DAB83 /* CALoggerUitilsMacrocDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALoggerUitilsMacrocDefine.h; sourceTree = "<group>"; };
 		0EA849F41B05013000A958E7 /* CrashAnalyse-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CrashAnalyse-Prefix.pch"; sourceTree = "<group>"; };
 		0EE239561B04EA140018B6F1 /* CrashAnalyse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrashAnalyse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EE2395A1B04EA140018B6F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,9 +75,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E27DDAF1B077A2200DF1950 /* DataCache */ = {
+			isa = PBXGroup;
+			children = (
+				0E27DDB01B077AD400DF1950 /* CADataCache.h */,
+				0E27DDB11B077AD400DF1950 /* CADataCache.m */,
+			);
+			path = DataCache;
+			sourceTree = "<group>";
+		};
 		0E4B400F1B05855F005DAB83 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				0E27DDAF1B077A2200DF1950 /* DataCache */,
 				0E4B40101B05855F005DAB83 /* log */,
 			);
 			path = util;
@@ -82,9 +96,9 @@
 		0E4B40101B05855F005DAB83 /* log */ = {
 			isa = PBXGroup;
 			children = (
-				0E4B40111B05855F005DAB83 /* JJCALogFormatter.h */,
-				0E4B40121B05855F005DAB83 /* JJCALogFormatter.m */,
-				0E4B40131B05855F005DAB83 /* JJCALoggerUitilsMacrocDefine.h */,
+				0E4B40111B05855F005DAB83 /* CALogFormatter.h */,
+				0E4B40121B05855F005DAB83 /* CALogFormatter.m */,
+				0E4B40131B05855F005DAB83 /* CALoggerUitilsMacrocDefine.h */,
 			);
 			path = log;
 			sourceTree = "<group>";
@@ -114,6 +128,7 @@
 		0EE239581B04EA140018B6F1 /* CrashAnalyse */ = {
 			isa = PBXGroup;
 			children = (
+				0E27DDAE1B06FCF600DF1950 /* CrashAnalyse.entitlements */,
 				0E4B400F1B05855F005DAB83 /* util */,
 				0EE2395B1B04EA140018B6F1 /* AppDelegate.h */,
 				0EE2395C1B04EA140018B6F1 /* AppDelegate.m */,
@@ -221,6 +236,11 @@
 				TargetAttributes = {
 					0EE239551B04EA140018B6F1 = {
 						CreatedOnToolsVersion = 6.3.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					0EE2396B1B04EA140018B6F1 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -308,7 +328,8 @@
 				0EE239621B04EA140018B6F1 /* ViewController.m in Sources */,
 				0EE2395F1B04EA140018B6F1 /* main.m in Sources */,
 				0EE2395D1B04EA140018B6F1 /* AppDelegate.m in Sources */,
-				0E4B40141B05855F005DAB83 /* JJCALogFormatter.m in Sources */,
+				0E4B40141B05855F005DAB83 /* CALogFormatter.m in Sources */,
+				0E27DDB21B077AD400DF1950 /* CADataCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +447,7 @@
 			baseConfigurationReference = 4058DE0EBA9BB34CD1528F82 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CrashAnalyse/CrashAnalyse.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CrashAnalyse/CrashAnalyse-Prefix.pch";
 				INFOPLIST_FILE = CrashAnalyse/Info.plist;
@@ -439,6 +461,7 @@
 			baseConfigurationReference = 8D9C307B5F2F0A890BE012E4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CrashAnalyse/CrashAnalyse.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CrashAnalyse/CrashAnalyse-Prefix.pch";
 				INFOPLIST_FILE = CrashAnalyse/Info.plist;

@@ -1,14 +1,14 @@
 //
-//  JJCALogFormatter.m
+//  CALogFormatter.m
 //  CrashAnalyse
 //
 //  Created by lijunjie on 5/15/15.
 //  Copyright (c) 2015 lijunjie. All rights reserved.
 //
 
-#import "JJCALogFormatter.h"
+#import "CALogFormatter.h"
 
-@implementation JJCALogFormatter
+@implementation CALogFormatter
 
 - (NSString *)formatLogMessage:(DDLogMessage *)logMessage
 {

@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "JJCALogFormatter.h"
+#import "CALogFormatter.h"
 
 @interface AppDelegate ()
 
@@ -26,7 +26,7 @@
 
 - (void)initLogger
 {
-    JJCALogFormatter *formatter = [[JJCALogFormatter alloc] init];
+    CALogFormatter *formatter = [[CALogFormatter alloc] init];
     
     [[DDASLLogger sharedInstance] setLogFormatter:formatter];
     [[DDTTYLogger sharedInstance] setLogFormatter:formatter];
