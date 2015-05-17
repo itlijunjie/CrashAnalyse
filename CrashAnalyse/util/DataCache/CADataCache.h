@@ -17,16 +17,16 @@
 - (void)saveCommandPath:(NSString *)commandPath;
 - (NSString *)getCommandPath;
 
-- (void)saveDsymPath;
+- (void)saveDsymPath:(NSString *)dsymPath;
 - (NSString *)getDsymPath;
 
-- (void)saveCrashPath;
+- (void)saveCrashPath:(NSString *)crashPath;
 - (NSString *)getCrashPath;
 
-- (void)saveAppPath;
+- (void)saveAppPath:(NSString *)appPath;
 - (NSString *)getAppPath;
 
-- (void)saveOutPath;
+- (void)saveOutPath:(NSString *)outPath;
 - (NSString *)getOutPath;
 
 @end

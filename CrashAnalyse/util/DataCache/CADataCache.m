@@ -10,6 +10,10 @@
 
 #define kCACacheFileName @"pathcache.plist"
 #define kCACacheCommandPathKey @"kCACacheCommandPathKey"
+#define kCACacheDsymPathKey @"kCACacheDsymPathKey"
+#define kCACacheCrashPathKey @"kCACacheCrashPathKey"
+#define kCACacheAppPathKey @"kCACacheAppPathKey"
+#define kCACacheOutPathKey @"kCACacheOutPathKey"
 
 @interface CADataCache ()
 {
@@ -58,44 +62,48 @@
     return [_cacheData objectForKey:kCACacheCommandPathKey];
 }
 
-- (void)saveDsymPath
+- (void)saveDsymPath:(NSString *)dsymPath
 {
-    
+    [_cacheData setObject:dsymPath forKey:kCACacheDsymPathKey];
+    [self saveData];
 }
 
 - (NSString *)getDsymPath
 {
-    return nil;
+    return [_cacheData objectForKey:kCACacheDsymPathKey];
 }
 
-- (void)saveCrashPath
+- (void)saveCrashPath:(NSString *)crashPath
 {
-    
+    [_cacheData setObject:crashPath forKey:kCACacheCrashPathKey];
+    [self saveData];
 }
 
 - (NSString *)getCrashPath
 {
-    return nil;
+    return [_cacheData objectForKey:kCACacheCrashPathKey];
 }
 
-- (void)saveAppPath
+- (void)saveAppPath:(NSString *)appPath
 {
-    
+    [_cacheData setObject:appPath forKey:kCACacheAppPathKey];
+    [self saveData];
 }
 
 - (NSString *)getAppPath
 {
-    return nil;
+    return [_cacheData objectForKey:kCACacheAppPathKey];
 }
 
-- (void)saveOutPath
+- (void)saveOutPath:(NSString *)outPath
 {
-    
+    [_cacheData setObject:outPath forKey:kCACacheOutPathKey];
+    [self saveData];
 }
 
 - (NSString *)getOutPath
 {
-    return nil;
+    return [_cacheData objectForKey:kCACacheOutPathKey];
 }
 
 #pragma mark - Private

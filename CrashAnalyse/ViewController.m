@@ -47,25 +47,29 @@
 - (IBAction)selectDsymFile:(id)sender {
     GJGCLogJunJie(@"选择dsym文件！");
     _dsymPath =  [self chooseFile];
-    _dsymPathTextField.stringValue = _dsymPath;
+    _dsymPathTextField.stringValue = _dsymPath?:@"";
+    [kCADataCacheHandle saveDsymPath:_dsymPath];
 }
 
 - (IBAction)selectCrashFile:(id)sender {
     GJGCLogJunJie(@"选择crash文件！");
     _crashPath =  [self chooseFile];
-    _crashPathTextField.stringValue = _crashPath;
+    _crashPathTextField.stringValue = _crashPath?:@"";
+    [kCADataCacheHandle saveCrashPath:_crashPath];
 }
 
 - (IBAction)selectAppFile:(id)sender {
     GJGCLogJunJie(@"选择app文件！");
     _appPath =  [self chooseFile];
-    _appPathTextField.stringValue = _appPath;
+    _appPathTextField.stringValue = _appPath?:@"";
+    [kCADataCacheHandle saveAppPath:_appPath];
 }
 
 - (IBAction)selectOutPath:(id)sender {
     GJGCLogJunJie(@"选择out文件路径！");
     _outPath =  [self chooseDirectorie];
-    _outPathTextField.stringValue = _outPath;
+    _outPathTextField.stringValue = _outPath?:@"";
+    [kCADataCacheHandle saveOutPath:_outPath];
 }
 
 - (IBAction)analyzeClick:(id)sender {
