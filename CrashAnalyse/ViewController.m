@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "CADataCache.h"
+#import <JJFileUtil.h>
 
 @interface ViewController ()
 {
@@ -28,6 +29,7 @@
 
 @implementation ViewController
 
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [_commandPathTextField setStringValue:[kCADataCacheHandle getCommandPath]?:@""];
@@ -37,6 +39,11 @@
     [_outPathTextField setStringValue:[kCADataCacheHandle getOutPath]?:@""];
 }
 
+- (void)setRepresentedObject:(id)representedObject {
+    [super setRepresentedObject:representedObject];
+}
+
+#pragma mark - Action 事件
 - (IBAction)selectCommandFile:(id)sender {
     GJGCLogJunJie(@"文件命令选择！");
     _commandPath =  [self chooseFile];
@@ -79,9 +86,41 @@
     GJGCLogJunJie(@"%@",[self exeCommand:@"/usr/bin/dwarfdump" arguments:@[@"-u",@"/Users/ljj/Desktop/Crash/CrashAnalyse.app.dsym"]]);
     
     
+    BOOL isEXE = NO;//是否具备执行的条件 commamdPath存在就说明具备执行条件
+    BOOL isAnalyse = NO;//是否具备分析的条件  只要app文件、dsym文件和日志文件存在切UUID一样就说名具备正确分析的条件
+    
+//    1.校验参数
+    if ([JJFileUtil isFileExist:_commandPath]) {
+        isEXE = YES;
+        if ([JJFileUtil isFileExist:_dsymPath] && [JJFileUtil isFileExist:_appPath] && [JJFileUtil isFileExist:_crashPath]) {
+            isAnalyse = YES;
+        }
+    }
+    
+    BOOL isUUID = NO;
+//    2.校验UUID
+    if (isEXE && isAnalyse) {
+//        if (<#condition#>) {
+//            isUUID = YES;
+//        }
+    } else {
+        
+    }
 
+    BOOL isSuccess = NO;
+//    3.执行日志分析输出到文件
+    if (isUUID) {
+//        if (<#condition#>) {
+//            isSuccess = YES;
+//        }
+    }
+//    4.更新UI显示分析成功
+    if (isSuccess) {
+        
+    }
 }
 
+#pragma mark - Private
 - (NSString *)chooseFile
 {
     NSOpenPanel* openDlg = [NSOpenPanel openPanel];
@@ -150,9 +189,4 @@
     
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
-
-- (void)setRepresentedObject:(id)representedObject {
-    [super setRepresentedObject:representedObject];
-}
-
 @end

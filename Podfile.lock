@@ -7,11 +7,18 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.0):
     - CocoaLumberjack/Default
+  - JJCommon (0.0.1)
 
 DEPENDENCIES:
   - CocoaLumberjack (= 2.0.0)
+  - JJCommon (from `https://raw.githubusercontent.com/itlijunjie/JJCommon/master/JJCommon.podspec`)
+
+EXTERNAL SOURCES:
+  JJCommon:
+    :podspec: https://raw.githubusercontent.com/itlijunjie/JJCommon/master/JJCommon.podspec
 
 SPEC CHECKSUMS:
   CocoaLumberjack: a6f77d987d65dc7ba86b0f84db7d0b9084f77bcb
+  JJCommon: c7a03d925bcf5621c79a43fb594fb8ccd6108506
 
 COCOAPODS: 0.34.4
