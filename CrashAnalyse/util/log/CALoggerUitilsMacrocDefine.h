@@ -10,70 +10,70 @@
 #define CrashAnalyse_CALoggerUitilsMacrocDefine_h
 
 //异步打印日志开关
-#define GJGC_LOG_ASYNC_ON
+#define CA_LOG_ASYNC_ON
 
 
-#ifdef GJGC_LOG_ASYNC_ON
+#ifdef CA_LOG_ASYNC_ON
 
-#define GJGC_LOG_ASYNC YES
+#define CA_LOG_ASYNC YES
 
 #else
 
-#define GJGC_LOG_ASYNC NO
+#define CA_LOG_ASYNC NO
 
 #endif
 
 
 /**
- *  GJGC日志总开关
+ *  CA日志总开关
  */
-#define GJGCLogOn
+#define CALogOn
 
-#ifdef GJGCLogOn
+#ifdef CALogOn
 
 /**
  *  注释这行取消ljj日志输出,取消注释打开,标示符号 $JJ$
  */
-#define GJGCLOG_JUN_JIE_TAG
+#define CALOG_JUN_JIE_TAG
 
 /**
  *  开启同步日志输出
  */
-#define GJGCLOG_SYNC_LOG_TAG
+#define CALOG_SYNC_LOG_TAG
 
 #endif
 
 
 
-#ifdef GJGCLOG_JUN_JIE_TAG
+#ifdef CALOG_JUN_JIE_TAG
 
-    #define GJGCLogJunJie_Enter   //log中加上回车
+    #define CALogJunJie_Enter   //log中加上回车
 
-    #ifdef GJGCLogJunJie_Enter
+    #ifdef CALogJunJie_Enter
 
-        #define GJGCLogJunJie(frmt, ...) LOG_OBJC_MAYBE(GJGC_LOG_ASYNC, LOG_LEVEL_DEF, LOG_FLAG_VERBOSE, 0, @"$JJ$ => \n\n"frmt@"\n",## __VA_ARGS__)
+        #define CALogJunJie(frmt, ...) LOG_OBJC_MAYBE(CA_LOG_ASYNC, LOG_LEVEL_DEF, LOG_FLAG_VERBOSE, 0, @"$JJ$ => \n\n"frmt@"\n",## __VA_ARGS__)
 
     #else
 
-        #define GJGCLogJunJie(frmt, ...) LOG_OBJC_MAYBE(GJGC_LOG_ASYNC, LOG_LEVEL_DEF, LOG_FLAG_VERBOSE, 0, @"$JJ$ => "frmt,## __VA_ARGS__)
+        #define CALogJunJie(frmt, ...) LOG_OBJC_MAYBE(CA_LOG_ASYNC, LOG_LEVEL_DEF, LOG_FLAG_VERBOSE, 0, @"$JJ$ => "frmt,## __VA_ARGS__)
 
     #endif
 
 #else
 
-    #define GJGCLogJunJie(frmt, ...)
+    #define CALogJunJie(frmt, ...)
 
 #endif
 
 
 
-#ifdef GJGCLOG_SYNC_LOG_TAG
+#ifdef CALOG_SYNC_LOG_TAG
 
-#define GJGCLOG_SYNC_LOG(frmt, ...) SYNC_LOG_OBJC_MAYBE(LOG_LEVEL_DEF, LOG_FLAG_VERBOSE, 0, @"$SYNC_LOG$ => "frmt,## __VA_ARGS__)
+#define CALOG_SYNC_LOG(frmt, ...) SYNC_LOG_OBJC_MAYBE(LOG_LEVEL_DEF, LOG_FLAG_VERBOSE, 0, @"$SYNC_LOG$ => "frmt,## __VA_ARGS__)
 
 #else
 
-#define GJGCLOG_SYNC_LOG(frmt, ...)
+#define CALOG_SYNC_LOG(frmt, ...)
 
 #endif
 
