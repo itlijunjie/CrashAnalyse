@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 #import "CADataCache.h"
-#import <JJFileUtil.h>
+#import "JJFileUtil.h"
+#import "NSString+JJStringUtil.h"
 
 @interface ViewController ()
 {
@@ -17,12 +18,14 @@
     IBOutlet NSTextField *_crashPathTextField;
     IBOutlet NSTextField *_appPathTextField;
     IBOutlet NSTextField *_outPathTextField;
+    IBOutlet NSTextField *_infoTextField;
     
     NSString *_commandPath;
     NSString *_dsymPath;
     NSString *_crashPath;
     NSString *_appPath;
     NSString *_outPath;
+    NSString *_dwarfdumpPath;
 }
 
 @end
@@ -32,11 +35,16 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [_commandPathTextField setStringValue:[kCADataCacheHandle getCommandPath]?:@""];
-    [_dsymPathTextField setStringValue:[kCADataCacheHandle getDsymPath]?:@""];
-    [_crashPathTextField setStringValue:[kCADataCacheHandle getCrashPath]?:@""];
-    [_appPathTextField setStringValue:[kCADataCacheHandle getAppPath]?:@""];
-    [_outPathTextField setStringValue:[kCADataCacheHandle getOutPath]?:@""];
+    _commandPath = [kCADataCacheHandle getCommandPath]?:@"";
+    [_commandPathTextField setStringValue:_commandPath];
+    _dsymPath = [kCADataCacheHandle getDsymPath]?:@"";
+    [_dsymPathTextField setStringValue:_dsymPath];
+    _crashPath = [kCADataCacheHandle getCrashPath]?:@"";
+    [_crashPathTextField setStringValue:_crashPath];
+    _appPath = [kCADataCacheHandle getAppPath]?:@"";
+    [_appPathTextField setStringValue:_appPath];
+    _outPath = [kCADataCacheHandle getOutPath]?:@"";
+    [_outPathTextField setStringValue:_outPath];
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -82,11 +90,12 @@
 - (IBAction)analyzeClick:(id)sender {
     GJGCLogJunJie(@"分析！");
     
-    GJGCLogJunJie(@"%@",[self exeCommand:@"/usr/bin/dwarfdump" arguments:@[@"-u",@"/Users/ljj/Desktop/Crash/CrashAnalyse.app/CrashAnalyse"]]);
-    GJGCLogJunJie(@"%@",[self exeCommand:@"/usr/bin/dwarfdump" arguments:@[@"-u",@"/Users/ljj/Desktop/Crash/CrashAnalyse.app.dsym"]]);
+    BOOL isSuccess = NO;//是否成功执行
     
+    NSString *info = @"";
     
     BOOL isEXE = NO;//是否具备执行的条件 commamdPath存在就说明具备执行条件
+    
     BOOL isAnalyse = NO;//是否具备分析的条件  只要app文件、dsym文件和日志文件存在切UUID一样就说名具备正确分析的条件
     
 //    1.校验参数
@@ -94,30 +103,72 @@
         isEXE = YES;
         if ([JJFileUtil isFileExist:_dsymPath] && [JJFileUtil isFileExist:_appPath] && [JJFileUtil isFileExist:_crashPath]) {
             isAnalyse = YES;
+        } else {
+            info = @"请检查dsym、app、crash文件是否存在！";
         }
+    } else {
+        info = @"找不到命令分析文件！";
     }
     
-    BOOL isUUID = NO;
+    __block BOOL isUUID = NO;
 //    2.校验UUID
     if (isEXE && isAnalyse) {
-//        if (<#condition#>) {
-//            isUUID = YES;
-//        }
-    } else {
         
-    }
-
-    BOOL isSuccess = NO;
-//    3.执行日志分析输出到文件
-    if (isUUID) {
-//        if (<#condition#>) {
-//            isSuccess = YES;
-//        }
-    }
-//    4.更新UI显示分析成功
-    if (isSuccess) {
+        _dwarfdumpPath = [[self exeCommand:@"/usr/bin/whereis" environment:nil arguments:@[@"dwarfdump"]] trim];
         
+        if (_dwarfdumpPath && _dwarfdumpPath.length > 0) {
+            NSString *appRes = [self exeCommand:_dwarfdumpPath environment:nil arguments:@[@"-u",[NSString stringWithFormat:@"%@/%@",_appPath,@"CrashDemo"]]];
+            NSMutableDictionary *appResDic = [[NSMutableDictionary alloc] init];
+            [appRes enumerateLinesUsingBlock:^(NSString *line, BOOL *stop) {
+                NSArray *arr = [line componentsSeparatedByString:@" "];
+                if ([arr count] > 3) {
+                    [appResDic setObject:arr forKey:arr[2]];
+                }
+            }];
+            NSString *dsymRes = [self exeCommand:_dwarfdumpPath environment:nil arguments:@[@"-u",_dsymPath]];
+            NSMutableDictionary *dsymResDic = [[NSMutableDictionary alloc] init];
+            [dsymRes enumerateLinesUsingBlock:^(NSString *line, BOOL *stop) {
+                NSArray *arr = [line componentsSeparatedByString:@" "];
+                if ([arr count] > 3) {
+                    [dsymResDic setObject:arr forKey:arr[2]];
+                }
+            }];
+            [appResDic enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                NSArray *arr = dsymResDic[key];
+                if (arr && [arr count] > 0) {
+                    if ([arr[1] isEqualToString:obj[1]]) {
+                        NSString *uuid = [arr[1] stringByReplacingOccurrencesOfString:@"-" withString:@""];
+                        NSError *error = nil;
+                        NSString *crashStr = [NSString stringWithContentsOfFile:_crashPath encoding:NSUTF8StringEncoding error:&error];
+                        if (!error) {
+                            __block BOOL isRight = NO;
+                            [crashStr enumerateLinesUsingBlock:^(NSString *line, BOOL *stop) {
+                                if ([line rangeOfString:uuid options:NSCaseInsensitiveSearch].location != NSNotFound) {
+                                    isRight = YES;
+                                    *stop = YES;
+                                }
+                            }];
+                            if (isRight) {
+                                isUUID = YES;
+                                *stop = YES;
+                            }
+                        }
+                    }
+                }
+            }];
+            
+            if (isUUID) {
+                NSString *res = [self exeCommand:_commandPath environment:@{@"DEVELOPER_DIR":@"/Applications/Xcode.app/Contents/Developer"} arguments:@[[NSString stringWithFormat:@"%@",_crashPath]]];
+                GJGCLogJunJie(@"%@",res);
+                [res writeToFile:[NSString stringWithFormat:@"%@/%@.log",_outPath,[_crashPath lastPathComponent]] atomically:YES encoding:NSUTF8StringEncoding error:nil];
+                isSuccess = YES;
+                info = @"成功执行完成！";
+            }
+        } else {
+            info = @"找不到dwarfdump命令，无法比较UUID";
+        }
     }
+    [_infoTextField setStringValue:info?:@""];
 }
 
 #pragma mark - Private
@@ -172,11 +223,17 @@
     return [url path];
 }
 
-- (NSString *)exeCommand:(NSString *)commandPath arguments:(NSArray *)arguments
+- (NSString *)exeCommand:(NSString *)commandPath environment:(NSDictionary *)environment arguments:(NSArray *)arguments
 {
     NSTask *task = [[NSTask alloc] init];
     [task setLaunchPath:commandPath];
-    [task setArguments:arguments];
+    if (environment) {
+        [task setEnvironment:environment];
+    }
+    
+    if (arguments) {
+        [task setArguments:arguments];
+    }
     
     NSPipe *pipe = [NSPipe pipe];
     [task setStandardOutput:pipe];
