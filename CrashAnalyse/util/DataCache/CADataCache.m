@@ -112,13 +112,13 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *cachePath = [documentsDirectory stringByAppendingPathComponent:kCACacheFileName];
-    GJGCLogJunJie(@"NSCachesDirectory----%@",cachePath);
+    CALogJunJie(@"NSCachesDirectory----%@",cachePath);
     return cachePath;
 }
 
 - (void)saveData
 {
-    GJGCLogJunJie(@"保存缓存路径！");
+    CALogJunJie(@"保存缓存路径！");
     [_cacheData writeToFile:[self getCachePath] atomically:YES];
 }
 
