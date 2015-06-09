@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -675,7 +675,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TC9-Pq-Lvq">
-                                <rect key="frame" x="572" y="452" width="126" height="32"/>
+                                <rect key="frame" x="559" y="452" width="132" height="32"/>
                                 <buttonCell key="cell" type="push" title="选择命令文件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Kh7-DA-H26">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name="STHeitiSC-Light"/>
@@ -685,7 +685,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lbr-hD-ago">
-                                <rect key="frame" x="572" y="419" width="126" height="32"/>
+                                <rect key="frame" x="559" y="419" width="132" height="32"/>
                                 <buttonCell key="cell" type="push" title="选择dsym文件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tl9-Y3-p6z">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name="STHeitiSC-Light"/>
@@ -695,7 +695,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ybi-4O-99X">
-                                <rect key="frame" x="572" y="386" width="127" height="32"/>
+                                <rect key="frame" x="559" y="386" width="132" height="32"/>
                                 <buttonCell key="cell" type="push" title="选择crash文件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iq6-aw-MIs">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name="STHeitiSC-Light"/>
@@ -705,7 +705,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PO5-jK-8aF">
-                                <rect key="frame" x="572" y="276" width="126" height="32"/>
+                                <rect key="frame" x="559" y="243" width="132" height="32"/>
                                 <buttonCell key="cell" type="push" title="分析" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MJQ-pc-LIg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name="STHeitiSC-Light"/>
@@ -747,7 +747,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BoI-V1-J0l">
-                                <rect key="frame" x="572" y="353" width="126" height="32"/>
+                                <rect key="frame" x="559" y="353" width="132" height="32"/>
                                 <buttonCell key="cell" type="push" title="选择app文件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="I0e-6X-fBx">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name="STHeitiSC-Light"/>
@@ -757,7 +757,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADi-Kt-id1">
-                                <rect key="frame" x="572" y="320" width="144" height="32"/>
+                                <rect key="frame" x="559" y="320" width="132" height="32"/>
                                 <buttonCell key="cell" type="push" title="选择输出文件路径" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ons-Ez-m9v">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name="STHeitiSC-Light"/>
@@ -774,9 +774,31 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qiY-pi-qKh">
-                                <rect key="frame" x="100" y="282" width="400" height="22"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="DXA-Tb-Ruo">
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fBb-2a-7O5">
+                                <rect key="frame" x="98" y="42" width="540" height="153"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="eU0-Ti-1qC">
+                                    <font key="font" size="13" name="STHeitiSC-Light"/>
+                                    <mutableString key="title">找到Symbolicatecrash文件
+Xcode 4.3的之后：
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/A/Resources/
+
+Xcode 4.3之前：
+/Developer/Platforms/iPhoneOS.platform/Developer/Library/PrivateFrameworks/DTDeviceKit.framework/Versions/A/Resources/symbolicatecrash</mutableString>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6wg-oc-8V1">
+                                <rect key="frame" x="98" y="237" width="404" height="34"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="选择需要的文件！" id="sD0-oY-yd5">
+                                    <font key="font" size="13" name="STHeitiSC-Light"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kUg-7c-jpE">
+                                <rect key="frame" x="100" y="293" width="400" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="目标名称，会根据app路径生成默认的目标名称，可手动输入。" drawsBackground="YES" id="hYh-85-4ZE">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -789,8 +811,9 @@
                         <outlet property="_commandPathTextField" destination="RMF-V8-vIi" id="Jnv-KP-Jov"/>
                         <outlet property="_crashPathTextField" destination="13g-fg-eK2" id="diJ-uu-5WV"/>
                         <outlet property="_dsymPathTextField" destination="uWT-1g-5Vp" id="vKT-nS-Fk4"/>
-                        <outlet property="_infoTextField" destination="qiY-pi-qKh" id="HxH-aT-xUg"/>
+                        <outlet property="_infoTextField" destination="6wg-oc-8V1" id="zSF-25-GBd"/>
                         <outlet property="_outPathTextField" destination="eQy-1b-gFe" id="X2e-fO-rL8"/>
+                        <outlet property="_targetNameTextField" destination="kUg-7c-jpE" id="RSn-6h-duy"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

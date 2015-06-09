@@ -19,6 +19,7 @@
     IBOutlet NSTextField *_appPathTextField;
     IBOutlet NSTextField *_outPathTextField;
     IBOutlet NSTextField *_infoTextField;
+    IBOutlet NSTextField *_targetNameTextField;
     
     NSString *_commandPath;
     NSString *_dsymPath;
@@ -26,6 +27,8 @@
     NSString *_appPath;
     NSString *_outPath;
     NSString *_dwarfdumpPath;
+    
+    NSString *_targetName;
 }
 
 @end
@@ -45,6 +48,10 @@
     [_appPathTextField setStringValue:_appPath];
     _outPath = [kCADataCacheHandle getOutPath]?:@"";
     [_outPathTextField setStringValue:_outPath];
+    if (_appPath) {
+        _targetName = [[[_appPath lastPathComponent] componentsSeparatedByString:@"."] firstObject]?:@"";
+        [_targetNameTextField setStringValue:_targetName];
+    }
 }
 
 - (void)setRepresentedObject:(id)representedObject {
@@ -117,7 +124,7 @@
         _dwarfdumpPath = [[self exeCommand:@"/usr/bin/whereis" environment:nil arguments:@[@"dwarfdump"]] trim];
         
         if (_dwarfdumpPath && _dwarfdumpPath.length > 0) {
-            NSString *appRes = [self exeCommand:_dwarfdumpPath environment:nil arguments:@[@"-u",[NSString stringWithFormat:@"%@/%@",_appPath,@"CrashDemo"]]];
+            NSString *appRes = [self exeCommand:_dwarfdumpPath environment:nil arguments:@[@"-u",[NSString stringWithFormat:@"%@/%@",_appPath,_targetName]]];
             NSMutableDictionary *appResDic = [[NSMutableDictionary alloc] init];
             [appRes enumerateLinesUsingBlock:^(NSString *line, BOOL *stop) {
                 NSArray *arr = [line componentsSeparatedByString:@" "];
