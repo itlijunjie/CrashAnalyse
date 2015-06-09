@@ -21,15 +21,15 @@
     IBOutlet NSTextField *_infoTextField;
     IBOutlet NSTextField *_targetNameTextField;
     
-    NSString *_commandPath;
-    NSString *_dsymPath;
-    NSString *_crashPath;
-    NSString *_appPath;
-    NSString *_outPath;
-    NSString *_dwarfdumpPath;
-    
     NSString *_targetName;
 }
+
+@property (nonatomic,strong) NSString *commandPath;
+@property (nonatomic,strong) NSString *dsymPath;
+@property (nonatomic,strong) NSString *crashPath;
+@property (nonatomic,strong) NSString *appPath;
+@property (nonatomic,strong) NSString *outPath;
+@property (nonatomic,strong) NSString *dwarfdumpPath;
 
 @end
 
@@ -85,6 +85,10 @@
     _appPath =  [self chooseFile];
     _appPathTextField.stringValue = _appPath?:@"";
     [kCADataCacheHandle saveAppPath:_appPath];
+    if (_appPath) {
+        _targetName = [[[_appPath lastPathComponent] componentsSeparatedByString:@"."] firstObject]?:@"";
+        [_targetNameTextField setStringValue:_targetName];
+    }
 }
 
 - (IBAction)selectOutPath:(id)sender {
@@ -96,6 +100,11 @@
 
 - (IBAction)analyzeClick:(id)sender {
     CALogJunJie(@"分析！");
+    [kCADataCacheHandle saveCommandPath:_commandPath];
+    [kCADataCacheHandle saveDsymPath:_dsymPath];
+    [kCADataCacheHandle saveCrashPath:_crashPath];
+    [kCADataCacheHandle saveAppPath:_appPath];
+    [kCADataCacheHandle saveOutPath:_outPath];
     
     BOOL isSuccess = NO;//是否成功执行
     
@@ -167,9 +176,10 @@
             if (isUUID) {
                 NSString *res = [self exeCommand:_commandPath environment:@{@"DEVELOPER_DIR":@"/Applications/Xcode.app/Contents/Developer"} arguments:@[[NSString stringWithFormat:@"%@",_crashPath]]];
                 CALogJunJie(@"%@",res);
-                [res writeToFile:[NSString stringWithFormat:@"%@/%@.log",_outPath,[_crashPath lastPathComponent]] atomically:YES encoding:NSUTF8StringEncoding error:nil];
+                NSString *savePath = [NSString stringWithFormat:@"%@/%@.log",_outPath,[_crashPath lastPathComponent]];
+                [res writeToFile:savePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
                 isSuccess = YES;
-                info = @"成功执行完成！";
+                info = [NSString stringWithFormat:@"成功执行完成:%@",savePath];
             }
         } else {
             info = @"找不到dwarfdump命令，无法比较UUID";
