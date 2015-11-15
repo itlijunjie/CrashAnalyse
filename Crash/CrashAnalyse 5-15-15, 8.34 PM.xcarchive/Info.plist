@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ApplicationProperties</key>
+	<dict>
+		<key>ApplicationPath</key>
+		<string>Applications/CrashAnalyse.app</string>
+		<key>CFBundleIdentifier</key>
+		<string>com.chinasofti.rcs</string>
+		<key>CFBundleShortVersionString</key>
+		<string>1.0</string>
+		<key>CFBundleVersion</key>
+		<string>1</string>
+		<key>SigningIdentity</key>
+		<string>iPhone Distribution: Beijing ChinaSoft International Information Technology Co., Ltd.</string>
+	</dict>
+	<key>ArchiveVersion</key>
+	<integer>2</integer>
+	<key>CreationDate</key>
+	<date>2015-05-15T12:34:45Z</date>
+	<key>Name</key>
+	<string>CrashAnalyse</string>
+	<key>SchemeName</key>
+	<string>CrashAnalyse</string>
+</dict>
+</plist>
