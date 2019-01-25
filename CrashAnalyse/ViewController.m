@@ -179,7 +179,7 @@
                 NSString *savePath = [NSString stringWithFormat:@"%@/%@.log",_outPath,[_crashPath lastPathComponent]];
                 [res writeToFile:savePath atomically:YES encoding:NSUTF8StringEncoding error:nil];
                 isSuccess = YES;
-                info = [NSString stringWithFormat:@"成功执行完成:%@",savePath];
+                info = [NSString stringWithFormat:@"Done:%@",savePath];
             }
         } else {
             info = @"找不到dwarfdump命令，无法比较UUID";

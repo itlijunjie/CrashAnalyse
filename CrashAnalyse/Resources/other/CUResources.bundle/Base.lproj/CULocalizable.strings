@@ -1,0 +1,30 @@
+/*
+ CULocalizable.strings
+ CrashAnalyse
+ 
+ Created by lijunjie on 16/7/19.
+ Copyright (c) 2016年 lijunjie. All rights reserved.
+ */
+
+
+/**
+ 命名规则CU_ModelName_VariableName
+ 使用全大写加下划线区分
+ Model之间用注释区分
+ 可选：可以为每个字符串加上相应的注释
+ 
+ 
+ 使用方法：CULocalizedString(key)
+ */
+
+/**
+ 举例：
+ 设置start
+ "key" = "value";//描述
+ 设置end
+ */
+
+/* Global start */
+"CU_GLOBAL_CANCEL" = "cancel";
+"CU_GLOBAL_ENTER" = "enter";
+/* Global end */
