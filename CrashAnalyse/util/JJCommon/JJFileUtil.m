@@ -128,7 +128,7 @@
     isOk = [object writeToFile:filePath atomically:atomically];
     if (isOk)
     {
-        [[NSFileManager defaultManager] setAttributes:nil ofItemAtPath:filePath error:nil];
+//        [[NSFileManager defaultManager] setAttributes:nil ofItemAtPath:filePath error:nil];
     }
     return isOk;
 }
@@ -183,7 +183,7 @@
         NSError *error = nil;
         [JJFileUtil createPath:[toPath stringByDeletingLastPathComponent]];
         [[NSFileManager defaultManager] copyItemAtPath:srcPath toPath:toPath error:&error];
-        [[NSFileManager defaultManager] setAttributes:nil ofItemAtPath:toPath error:&error];
+//        [[NSFileManager defaultManager] setAttributes:nil ofItemAtPath:toPath error:&error];
         if (error)
         {
             isOk = NO;

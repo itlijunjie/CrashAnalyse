@@ -13,8 +13,7 @@
 
 - (id)init {
   if(self = [super init]) {
-      NSRect contentSize = NSMakeRect(200, 500, 550, 650); // initial size of main NSWindow
-      NSWindow *window = [[NSWindow alloc] initWithContentRect: contentSize
+      NSWindow *window = [[NSWindow alloc] initWithContentRect: NSMakeRect(200, 500, 550, 650)
                                                      styleMask: NSWindowStyleMaskTitled |
                                                                 NSWindowStyleMaskResizable |
 //                                                                NSWindowStyleMaskFullSizeContentView |
@@ -26,8 +25,8 @@
       self.window = window;
       NSWindowController *windowController = [[NSWindowController alloc] initWithWindow:self.window];
       [self.window setTitleVisibility:NSWindowTitleVisible];
-      [[self window] setTitlebarAppearsTransparent:YES];
-      [[self window] setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameAqua]];
+//      [[self window] setTitlebarAppearsTransparent:YES];
+//      [[self window] setAppearance:[NSAppearance appearanceNamed:NSAppearanceNameAqua]];
       
       [windowController setShouldCascadeWindows:NO];
       [windowController setWindowFrameAutosaveName:@"CrashAnalyse"];
@@ -37,10 +36,8 @@
   return self;
 }
 
-
 - (void)applicationDidFinishLaunching:(__unused NSNotification *)aNotification {
     CAViewController *vc = [[CAViewController alloc] initWithNibName:@"CAViewController" bundle:nil];
-    // try NSVisualEffectMaterialDark or NSVisualEffectMaterialMediumLight
     [self.window setContentViewController:vc];
 }
 

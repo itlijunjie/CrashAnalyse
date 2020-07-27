@@ -11,10 +11,10 @@
 		0E4B40141B05855F005DAB83 /* CALogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E4B40121B05855F005DAB83 /* CALogFormatter.m */; };
 		0E7DCD5321FAC0DB00F0E3A3 /* CULocalizableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E7DCCD121FAC0DA00F0E3A3 /* CULocalizableManager.m */; };
 		0E7DCD5721FAC10000F0E3A3 /* CUResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0E7DCD5621FAC10000F0E3A3 /* CUResources.bundle */; };
-		0ECAB88024CEB4EC00A5CC74 /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECAB87F24CEB4EC00A5CC74 /* CAAppDelegate.m */; };
 		0ECAB88724CEB72D00A5CC74 /* CAWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECAB88524CEB72D00A5CC74 /* CAWindowController.m */; };
 		0ECAB88C24CEB7F400A5CC74 /* CAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECAB88A24CEB7F400A5CC74 /* CAViewController.m */; };
 		0ECAB88D24CEB7F400A5CC74 /* CAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0ECAB88B24CEB7F400A5CC74 /* CAViewController.xib */; };
+		0ECAB88F24CED3FE00A5CC74 /* CAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECAB87F24CEB4EC00A5CC74 /* CAAppDelegate.m */; };
 		0EE2395F1B04EA140018B6F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE2395E1B04EA140018B6F1 /* main.m */; };
 		0EE239641B04EA140018B6F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EE239631B04EA140018B6F1 /* Images.xcassets */; };
 		0EE239731B04EA140018B6F1 /* CrashAnalyseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE239721B04EA140018B6F1 /* CrashAnalyseTests.m */; };
@@ -303,7 +303,7 @@
 		0EE2394E1B04EA140018B6F1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = lijunjie;
 				TargetAttributes = {
 					0EE239551B04EA140018B6F1 = {
@@ -322,10 +322,9 @@
 			};
 			buildConfigurationList = 0EE239511B04EA140018B6F1 /* Build configuration list for PBXProject "CrashAnalyse" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -390,10 +389,10 @@
 				0EFDE3C81B09DF3C00090421 /* NSString+JJStringUtil.m in Sources */,
 				0E7DCD5321FAC0DB00F0E3A3 /* CULocalizableManager.m in Sources */,
 				0EE2395F1B04EA140018B6F1 /* main.m in Sources */,
-				0ECAB88024CEB4EC00A5CC74 /* CAAppDelegate.m in Sources */,
 				0ECAB88724CEB72D00A5CC74 /* CAWindowController.m in Sources */,
 				0ECAB88C24CEB7F400A5CC74 /* CAViewController.m in Sources */,
 				0E4B40141B05855F005DAB83 /* CALogFormatter.m in Sources */,
+				0ECAB88F24CED3FE00A5CC74 /* CAAppDelegate.m in Sources */,
 				0E27DDB21B077AD400DF1950 /* CADataCache.m in Sources */,
 				0EFDE3C51B09DF3200090421 /* JJFileUtil.m in Sources */,
 			);
@@ -427,19 +426,30 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -471,13 +481,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -504,10 +524,12 @@
 			baseConfigurationReference = 04E7E826B668B1D2297C4B3E /* Pods-CrashAnalyse.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CrashAnalyse/CrashAnalyse-Prefix.pch";
 				INFOPLIST_FILE = CrashAnalyse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.itlijunjie.CrashAnalyse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -517,10 +539,12 @@
 			baseConfigurationReference = 0169131AB7DA5466CF269325 /* Pods-CrashAnalyse.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CrashAnalyse/CrashAnalyse-Prefix.pch";
 				INFOPLIST_FILE = CrashAnalyse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.itlijunjie.CrashAnalyse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -540,6 +564,7 @@
 				);
 				INFOPLIST_FILE = CrashAnalyseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.itlijunjie.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrashAnalyse.app/Contents/MacOS/CrashAnalyse";
 			};
@@ -556,6 +581,7 @@
 				);
 				INFOPLIST_FILE = CrashAnalyseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.itlijunjie.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrashAnalyse.app/Contents/MacOS/CrashAnalyse";
 			};

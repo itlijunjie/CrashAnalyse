@@ -11,8 +11,7 @@
 #import "JJFileUtil.h"
 #import "NSString+JJStringUtil.h"
 
-@interface CAViewController ()
-{
+@interface CAViewController () {
     IBOutlet NSTextField *_commandPathTextField;
     IBOutlet NSTextField *_dsymPathTextField;
     IBOutlet NSTextField *_crashPathTextField;
@@ -189,8 +188,7 @@
 }
 
 #pragma mark - Private
-- (NSString *)chooseFile
-{
+- (NSString *)chooseFile {
     NSOpenPanel* openDlg = [NSOpenPanel openPanel];
     
     [openDlg setCanChooseFiles:YES];
@@ -216,8 +214,7 @@
     return [url path];
 }
 
-- (NSString *)chooseDirectorie
-{
+- (NSString *)chooseDirectorie {
     NSOpenPanel* openDlg = [NSOpenPanel openPanel];
     
     [openDlg setCanChooseFiles:NO];
@@ -240,8 +237,7 @@
     return [url path];
 }
 
-- (NSString *)exeCommand:(NSString *)commandPath environment:(NSDictionary *)environment arguments:(NSArray *)arguments
-{
+- (NSString *)exeCommand:(NSString *)commandPath environment:(NSDictionary *)environment arguments:(NSArray *)arguments {
     NSTask *task = [[NSTask alloc] init];
     [task setLaunchPath:commandPath];
     if (environment) {
