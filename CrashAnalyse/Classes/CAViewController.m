@@ -1,17 +1,17 @@
 //
-//  ViewController.m
+//  CAViewController.m
 //  CrashAnalyse
 //
-//  Created by lijunjie on 5/14/15.
-//  Copyright (c) 2015 lijunjie. All rights reserved.
+//  Created by lijunjie on 2020/7/27.
+//  Copyright © 2020 lijunjie. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CAViewController.h"
 #import "CADataCache.h"
 #import "JJFileUtil.h"
 #import "NSString+JJStringUtil.h"
 
-@interface ViewController ()
+@interface CAViewController ()
 {
     IBOutlet NSTextField *_commandPathTextField;
     IBOutlet NSTextField *_dsymPathTextField;
@@ -33,7 +33,7 @@
 
 @end
 
-@implementation ViewController
+@implementation CAViewController
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -263,4 +263,5 @@
     
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
+
 @end
