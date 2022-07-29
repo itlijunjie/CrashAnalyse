@@ -129,8 +129,8 @@
 //    2.校验UUID
     if (isEXE && isAnalyse) {
         
-        _dwarfdumpPath = [[self exeCommand:@"/usr/bin/whereis" environment:nil arguments:@[@"dwarfdump"]] trim];
-        
+        _dwarfdumpPath = [[self exeCommand:@"/usr/bin/which" environment:nil arguments:@[@"dwarfdump"]] trim];
+
         if (_dwarfdumpPath && _dwarfdumpPath.length > 0) {
             NSString *appRes = [self exeCommand:_dwarfdumpPath environment:nil arguments:@[@"-u",[NSString stringWithFormat:@"%@/%@",_appPath,_targetName]]];
             NSMutableDictionary *appResDic = [[NSMutableDictionary alloc] init];
