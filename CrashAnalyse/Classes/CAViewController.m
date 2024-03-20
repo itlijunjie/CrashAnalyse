@@ -152,7 +152,7 @@
                 NSArray *arr = dsymResDic[key];
                 if (arr && [arr count] > 0) {
                     if ([arr[1] isEqualToString:obj[1]]) {
-                        NSString *uuid = [arr[1] stringByReplacingOccurrencesOfString:@"-" withString:@""];
+                        NSString *uuid = arr[1];
                         NSError *error = nil;
                         NSString *crashStr = [NSString stringWithContentsOfFile:_crashPath encoding:NSUTF8StringEncoding error:&error];
                         if (!error) {
